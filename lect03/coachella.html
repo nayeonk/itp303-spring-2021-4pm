@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coachella</title>
+
+	<!-- Internal stylesheet aka Internal CSS -->
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		#header {
+			background-color: #f5dfc0;
+			text-align: center;
+			margin-top: 0px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			/*margin-left: 40px;
+			padding-left: 90px;*/
+		}
+		#header h1 {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+		/* #about is the parent div that contains the green and pink divs */
+		#about {
+			margin-right: auto;
+			margin-left: auto;
+			background-color: pink;
+			width: 710px;
+		}
+		#about-pic {
+			background-color: lightgreen;
+			width: 400px;
+			float: left;
+
+			/* Floats do two things
+			1. A floated elemented gets pushed to the LEFT (or right) as possible
+
+			2. Side effect: Any element that comes AFTER the floated element tries to "wrap around" the floated element.
+
+			*/
+		}
+		#about-text {
+			background-color: pink;
+			width: 300px;
+			float: left;
+			/* When you add padding, the width of this div INCREASES */
+			padding-left: 10px;
+
+			/* Try not to set heights on anything */
+			/*height: 400px;*/
+		}
+		.clearfloat {
+			/* clear STOPS any floats from continuing*/
+			clear: both;
+		}
+
+		#artists {
+			background-color: skyblue;
+			margin-left: auto;
+			margin-right: auto;
+			/* Calculate the width based on the sizes of the .artist-box */
+
+			/* (1px + 10px + 15px + 200px + 15px 10px + 1px) * 3 */
+			width: 756px;
+		}
+		.artist-box {
+			background-color: #FEF587;
+			width: 200px;
+			float: left;
+
+			margin: 10px;
+			/* this is a shorthand to say padding 15px on ALL sides */
+			padding: 15px;
+			border: 1px solid black;
+		}
+		/* the image inside .artist-box will go outside of the box. let's make sure it fits in .artist-box */
+		.artist-box img {
+			width: 200px;
+		}
+
+		#footer {
+			background-color: black;
+			color: white;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>Coachella</h1>
+	</div>
+
+	<div id="about">
+		<div id="about-pic">
+			<img src="images/coachella.png" alt="A palm tree" />
+		</div>
+		<div id="about-text">
+			<p>The Coachella Valley Music and Arts Festival (commonly called Coachella or the Coachella Festival) is an annual music and arts festival held at the Empire Polo Club in Indio, California, in the Coachella Valley in the Colorado Desert. It was co-founded by Paul Tollett and Rick Van Santen in 1999, and is organized by Goldenvoice, a subsidiary of AEG Presents.</p>
+		</div>
+		<!-- STOP floating here. This is the end of the row. This is an empty div. -->
+		<div class="clearfloat"></div>
+	</div>
+
+	<div id="artists">
+		<h2>Artists</h2>
+
+		<div class="artist-box">
+			<img src="images/ariana.jpg" alt="Ariana Grande"/>
+			<h3>Ariana Grande</h3>
+		</div>
+
+		<div class="artist-box">
+			<img src="images/gambino.jpg" alt="Childish Gambino" />
+			<h3>Childish Gambino</h3>
+		</div>
+
+		<div class="artist-box">
+			<img src="images/blackpink.jpg" alt="Black Pink" />
+			<h3>Black Pink</h3>
+		</div>
+
+		<!-- STOP FLOATING HERE!! -->
+		<div class="clearfloat"></div>
+
+	</div>
+
+	<div id="footer">
+		Copyright 2021.
+	</div>
+	
+</body>
+</html>
