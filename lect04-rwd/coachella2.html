@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lecture 4 - more css</title>
+	<style>
+		html,body {
+			margin: 0;
+			padding: 0;
+		}
+		#header {
+			background-color: #f5dfc0;
+			background-image: url("images/bg.jpg");
+			height: 400px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+		}
+		#header h1 {
+			margin: 0;
+			text-align: center;
+		}
+		#artists {
+			background-color: skyblue;
+			width: 1056px;
+			margin: 0 auto;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		#artists h2 {
+			margin-top: 0;
+			text-align: center;
+		}
+		#artists .column {
+			background-color: #FEF587;
+			width: 300px;
+			padding: 15px;
+			margin: 10px;
+			border: 1px solid black;
+			float: left;
+		}
+		#artists .column img {
+			width: 100%;
+		}
+		.clearfloat {
+			clear: both;
+		}
+
+		#about {
+			background-color: #FFED6A;
+			padding: 40px;
+		}
+
+		/* ---- CSS Positons 101 ---- */
+		#relative-div {
+			background-color: orange;
+		}
+		#absolute-div {
+			background-color: red;
+		}
+		#fixed-div {
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div id="header">
+		<h1>Coachella</h1>
+	</div> <!-- end of #header -->
+
+	<div id="artists">
+		<h2>Artists</h2>
+		<div class="column">
+			<img src="images/ariana.jpg"/>
+			<h3>Ariana Grande</h3>
+		</div>
+		<div class="column">
+			<img src="images/gambino.jpg"/>
+			<h3>Childish Gambino</h3>
+		</div>
+		<div class="column">
+			<img src="images/blackpink.jpg"/>
+			<h3>Black Pink</h3>
+		</div>
+		<div class="clearfloat"></div>
+	</div> <!-- end of #artists -->
+
+	<div id="about">
+		<h2>About</h2>
+		<a href="https://www.coachella.com/">Coachella Website</a>
+		<a href="https://en.wikipedia.org/wiki/Coachella_Valley_Music_and_Arts_Festival">Wikipedia</a>
+		
+		<p>The Coachella Valley Music and Arts Festival (commonly referred to as Coachella or the Coachella Festival) is an annual music and arts festival held at the Empire Polo Club in Indio, California, located in the Inland Empire's Coachella Valley in the Colorado Desert. It was co-founded by Paul Tollett and Rick Van Santen in 1999, and is organized by Goldenvoice, a subsidiary of AEG Live.[1] The event features musical artists from many genres of music, including rock, indie, hip hop, and electronic dance music, as well as art installations and sculptures. Across the grounds, several stages continuously host live music. The main stages are the: Coachella Stage, Outdoor Theatre, Gobi Tent, Mojave Tent, and Sahara Tent; a smaller Oasis Dome was used in 2006 and 2011, while a new Yuma stage was introduced in 2013 and a Sonora stage in 2017.</p>
+
+		<div id="relative-div">
+			I'm a relative div!!
+		</div>
+		<div id="absolute-div">
+			I'm an absolute div!!
+		</div>
+		<div id="fixed-div">
+			I'm a fixed div!!
+		</div>
+
+		<p>The festival's origins trace back to a 1993 concert that Pearl Jam performed at the Empire Polo Club while boycotting venues controlled by Ticketmaster. The show validated the site's viability for hosting large events, leading to the inaugural Coachella Festival being held over the course of two days in October 1999—just three months after Woodstock '99. After no event was held in 2000, Coachella returned on an annual basis beginning in April 2001, as a single-day event. In 2002, the festival reverted to a two-day format. Coachella was expanded to a third day in 2007 and eventually a second weekend in 2012; it is currently held on consecutive three-day weekends in April, with each weekend having identical lineups. Organizers began permitting spectators to camp on the grounds in 2003, one of several expansions and additions of amenities that have been made in the festival's history.</p>
+
+		<p>Coachella showcases popular and established musical artists, as well as emerging artists and reunited groups. Coachella is one of the largest, most famous, and most profitable music festivals in the United States and all over the world.[2][3] Each Coachella staged from 2013 to 2015 set new records for festival attendance and gross revenues. The 2017 festival was attended by 250,000 people and grossed $114.6 million. The success of Coachella led to Goldenvoice establishing two additional music festivals at the site, the classic rock-oriented Desert Trip in 2016, and the annual Stagecoach country music festival in 2007.</p>
+	</div> <!-- end of #about -->
+	
+</body>
+</html>

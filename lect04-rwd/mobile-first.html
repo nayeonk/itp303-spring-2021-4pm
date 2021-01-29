@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RWD - mobile first </title>
+	<style>
+		#container {
+			background-color: green;
+		}
+		.column {
+			min-height: 100px;
+			box-sizing: border-box;
+		}
+		.half {
+			border: 1px solid purple;
+			background-color: pink;
+		}
+		.fourth {
+			border: 1px solid blue;
+			background-color: skyblue;
+		}
+		.row:after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="container">
+		<div class="row">
+			<div class="column half">
+				I'm half
+			</div>
+			<div class="column half">
+				I'm half
+			</div>
+			<div class="clearfloat"></div>
+		</div>
+		<div class="row">
+			<div class="column fourth">
+				I'm a fourth
+			</div>
+			<div class="column fourth">
+				I'm a fourth
+			</div>
+			<div class="column fourth">
+				I'm a fourth
+			</div>
+			<div class="column fourth">
+				I'm a fourth
+			</div>
+		</div>
+	</div> <!-- end of #responsive -->
+
+</body>
+</html>
