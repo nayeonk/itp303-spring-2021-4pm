@@ -1,0 +1,60 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+}
+/* asterisk (*) selects ALL the html elements*/
+* {
+	box-sizing: border-box;
+}
+
+/* Colors for each box. */
+.box1 { background-color: #011627; }
+.box2 { background-color: #EB5160; }
+.box3 { background-color: #030301; }
+.box4 { background-color: #00D9C0; }
+.box5 { background-color: #FF0022; }
+
+/* The parent */
+.container {
+  border: 10px solid skyblue;
+  display: flex;
+
+  height: 400px;
+
+  /* flex-direction defines the MAIN AXIS of this flexbox. default is row.*/
+  flex-direction: row;
+
+  /* flex-wrap: nowrap (default) keeps all children flex items in one row. flex-wrap: wrap will put children flex items in next row if it cant fit */
+  flex-wrap: wrap;
+
+  /* justify content: defines alignment along the MAIN AXIS (so not always horizontal) */
+  justify-content: center;
+
+  /* align-items: defines alignment along the CROSS AXIS (so not always vertical)*/
+  align-items: flex-end;
+}
+
+/* .container's direct children */
+.box {
+	color: white;
+  	font-size: 28px;
+
+  	/* Can still set widths for the children items */
+  	width: 100px;
+  	/* can still set margins/padding*/
+  	/*margin: 10px;*/
+}
+.box3 {
+	/* by default, all boxes have an order of 0. The higher value the order is, the later the box will appear  */
+	order: 1;
+}
+.box2 {
+	order: 9999999999999;
+}
+
+
+
+
+
+
