@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS</title>
+	<style>
+		form {
+			width: 500px;
+		}
+		.form-row {
+			margin-bottom: 10px;
+			display: flex;
+		}
+		label {
+			padding-right: 10px;
+			width: 60px;
+		}
+		input {
+			width: 150px;
+			height: 20px;
+		}
+		.error {
+			color: red;
+			font-style: italic;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="text">Form</h1>
+
+	<form id="form" method="" action="">
+
+		<div class="form-row">
+			<label for="name-input">Name: </label>
+			<input type="text" id="name-input" name="name-input" placeholder="Tommy Trojan" />
+			<div class="error">Error message</div>
+		</div>
+
+		<div class="form-row">
+			<label for="age-input">Age: </label>
+			<input type="text" id="age-input" name="age-input"/> 
+			<div class="error">Error message</div>
+		</div>
+
+		<div class="form-row">
+			<button type="submit" id="go-button">Go</button>
+		</div>
+
+	</form>
+
+</body>
+</html>
