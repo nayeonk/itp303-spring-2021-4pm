@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS</title>
+	<style>
+		form {
+			width: 500px;
+		}
+		.form-row {
+			margin-bottom: 10px;
+			display: flex;
+		}
+		label {
+			padding-right: 10px;
+			width: 60px;
+		}
+		input {
+			width: 150px;
+			height: 20px;
+		}
+		.error {
+			color: red;
+			font-style: italic;
+			margin-left: 10px;
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="text">Form</h1>
+
+	<form id="form" method="" action="">
+
+		<div class="form-row">
+
+	<label for="name-input">Name: </label>
+
+	<input type="text" id="name-input" name="name-input" placeholder="Tommy Trojan" />
+	
+	<!-- error message is a sibling of the input tag -->
+	<div class="error">Error message</div>
+
+
+		</div>
+
+		<div class="form-row">
+			<label for="age-input">Age: </label>
+			<input type="text" id="age-input" name="age-input"/> 
+			<div class="error">Error message</div>
+		</div>
+
+		<div class="form-row">
+			<button type="reset" id="go-button">Reset</button>
+			<button type="submit" id="go-button">Submit</button>
+		</div>
+
+	</form>
+
+<script>
+	// ---- Keyboard events
+	// .onkeydown, .onkeyup, .onkeypress
+	document.onkeydown = function() {
+		//console.log("onkeydown");
+	}
+
+	document.onkeyup = function() {
+		//console.log("onkeyup");
+	}
+
+	let counter = 0;
+	// onkeypress is very similar to keydown. the main difference is that keypress does not register special buttons like enter, control, arrow buttons, alt, etc. Only detects "typing" keys
+	document.onkeypress = function(event) {
+		// console.log("onkeypress");
+		//console.log(event);
+		//console.log(event.key);
+		//console.log(event.keyCode);
+
+		// Display the keys I pressed in the browser
+		// document.querySelector("#text").innerHTML = document.querySelector("#text").innerHTML + event.key;
+		
+
+		// This is the first time user is typing something
+		if(counter == 0) {
+			document.querySelector("#text").innerHTML = event.key;
+			counter++;
+		}
+		else {
+			// Append in the second time user types something
+			document.querySelector("#text").innerHTML += event.key;
+		}
+		
+	}
+
+	// JS can detect scroll events as well!
+	document.onscroll = function() {
+
+	}
+
+	// ---- JS data types
+	let number = 8;
+	let number2 = 8.8;
+	let text = "hi";
+
+	// ---- Arithmetic
+	console.log(1+7);
+	console.log(1+2.5);
+	console.log(1+"1");
+	console.log("hi"+"1");
+	console.log(9-5);
+	console.log(2-5);
+	console.log(4*1.3);
+	console.log(7/8);
+
+	// JS also has 3 special floating numbers: Infinity, -Infinity, NaN
+	console.log(1/0);
+	console.log(-1/0);
+	// NaN - not a number
+	console.log(0/0);
+	console.log("hi"/9);
+
+	// Convert strings to integers
+	let string1 = "1000";
+	let string2 = "10.4343";
+	console.log( parseInt(string1) );
+	console.log( parseFloat(string2) );
+
+
+	// --- STRINGS
+	// strings are arrays of characters
+	// strings are IMMUTABLE
+	let name = "nayeon";
+	console.log(name[0]);
+	console.log(name.length);
+	console.log(name.charAt(0));
+	// .indexOf() returns the position that the character is in. returns -1 if not found.
+	console.log(name.indexOf("n"));
+	console.log(name.lastIndexOf("n"));
+	// .toUpperCase does not change the actual value of name. It creates a copy of name and uppercases that copy.
+	console.log(name.toUpperCase());
+	console.log(name);
+
+
+	// ---- FORM EVENTS	
+	// Three different form events
+	// 1. .onchange - on specific fields
+	document.querySelector("#name-input").onchange = function() {
+
+		// onchange gets triggered when the focus changes from this input tag
+		console.log("name changed!");
+	}
+
+	// 2. .oninput - on specific fields
+	document.querySelector("#name-input").oninput = function() {
+
+		// Every time user types into the input, this function gets run 
+		console.log("oninput!");
+
+		// Get what the user is typing
+		let userInput = document.querySelector("#name-input").value;
+		console.log(userInput);
+	}
+
+	// 3. .onsubmit - on the entire form
+	// onsubmit is great for checking ALL the form elements before it is submitted
+	document.querySelector("#form").onsubmit = function(event) {
+
+		// By default, forms are going to try to submit itself if the form is submitted. We are going to prevent the form from being submitted so that we can do some validation checks.
+		event.preventDefault();
+
+		console.log("onsubmit!!");
+
+		// Can do some validation!
+		// Check that the Name field is NOT empty
+		// Grab the user input
+		let nameInput = document.querySelector("#name-input").value;
+
+		// .trim() - removes any leading or trailing whitespaces
+		if( nameInput.trim().length == 0 ) {
+			console.log("Name is empty!!");
+
+			// Show the error message
+			document.querySelector("#name-input").nextElementSibling.style.visibility = "visible";
+			document.querySelector("#name-input").nextElementSibling.innerHTML = "Name cannot be empty";
+		}
+		else {
+			console.log("Name is good!");
+
+			// Hide the error message
+			document.querySelector("#name-input").nextElementSibling.style.visibility = "hidden";
+		}
+	}
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
