@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Manipulation and JS Objects</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-4">
+			<h1 class="col-12">Create Elements on the fly</h1>
+			<div class="col-12 mt-4">
+				<form id="simple-form">
+					<div class="form-row">
+						<div class="col-12 mt-2 col-sm-3 mt-sm-0">
+							<label for="input" class="sr-only">Add a paragraph</label>
+							<input type="text" class="form-control" id="input" placeholder="Add some text">
+						</div> 
+
+						<div class="col-12 mt-2 col-sm-auto mt-sm-0">
+							<button role="button" type="submit" class="btn btn-primary">Add</button>
+							<button role="button" type="button" class="btn btn-danger" id="btn-delete">Delete All</button>
+						</div> <!-- .col -->
+					</div>
+				</form>
+			</div>
+			<div class="col-12 mt-4">
+				<div id="paragraphs">
+					<p class="red">I am a paragraph</p>
+					<p class="red">I am a second paragraph</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+<script>
+
+	// When user clicks on the add button, create a <p> tag with the text that the user typed in and then append it to the end of the paragraphs div
+
+	// one advantage of using .onsubmit is that this event will trigger if user presses "enter" on their keyboard to submit the form (as well as if user clicks on the button to submit the form)
+	document.querySelector("#simple-form").onsubmit = function(event) {
+  		// User is submitting the form
+  		// console.log("submitted!!");
+  		// console.log(event);
+
+  		// Prevent the form from actually submitting
+  		event.preventDefault();
+
+  		// Grab what the user typed in
+  		let userInput = document.querySelector("#input").value.trim();
+  		console.log(userInput);
+
+
+  		// Quick validation
+  		if(userInput.length > 0) {
+
+	  		// Append the text to the end of the paragraphs
+
+	  		// Create a <p> tag on the fly
+	  		let pElement = document.createElement("p");
+	  		// console.log(pElement);
+
+	  		// Add the user input within the <p> tag
+	  		pElement.innerHTML = userInput;
+	  		console.log(pElement);
+
+	  		// Add a class name to the newly created <p> tags
+	  		pElement.classList.add("red");
+
+	  		// Append this newly created <p> tag to the <div id="paragarphs">
+	  		let paragraphs = document.querySelector("#paragraphs");
+	  		paragraphs.appendChild(pElement);
+
+	  		// Clear the input tag 
+	  		document.querySelector("#input").value = "";
+	  		// userInput = "";
+	  	}
+	  	else {
+	  		alert("input can't be empty!");
+	  	}
+
+	}
+
+	// Delete All - when "Delete All" button is clicked, remove everything from #paragraphs div
+	document.querySelector("#btn-delete").onclick = function() {
+
+		let paragraphs = document.querySelector("#paragraphs");
+
+		// Run a while loop to delete all of #paragraph's children
+		// hasChildNodes() returns true or false
+		while( paragraphs.hasChildNodes() ) {
+			paragraphs.removeChild(paragraphs.lastChild);
+		}
+
+	}	
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local Storage and Session Storage</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-4">
+        <h1 class="col-12">Local Storage and Session Storage</h1>
+        <div class="col-12">
+          <button id="decrement" type="button" class="btn btn-danger">
+            Decrement
+          </button>
+          <button id="increment" type="button" class="btn btn-primary">
+            Increment
+          </button>
+        </div>
+        <div class="col-12 mt-4">
+          <div class="input-group mb-3">
+            <span class="input-group-text"> Local Storage </span>
+            <input
+              id="local-storage-value"
+              type="text"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text"> Session Storage </span>
+            <input
+              id="session-storage-value"
+              type="text"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const localStorageInput = document.querySelector("#local-storage-value");
+      const sessionStorageInput = document.querySelector("#session-storage-value");
+      
+      const decrementButton = document.querySelector("#decrement")
+      const incrementButton = document.querySelector("#increment")
+
+      // If num exists in local / session storage, set it as the input value
+      // If not, default to 0
+
+      if (localStorage.num) {
+        localStorageInput.value = localStorage.num;
+      } else {
+        localStorageInput.value = 0;
+      }
+
+      if (sessionStorage.num) {
+        sessionStorageInput.value = sessionStorage.num;
+      } else {
+        sessionStorageInput.value = 0;
+      }
+
+      decrementButton.onclick = function() {
+        // Do 4 things
+
+        // 1 - Get the value in the input and parse it to an int
+        // 2 - decrement the number
+        // 3 - Save in local/session storage
+        // 4 - Update input
+
+        let localNum = localStorageInput.value
+        localNum = parseInt(localStorageInput.value)
+        localNum--
+        localStorage.num = localNum
+        localStorageInput.value = localNum
+
+        let sessionNum = sessionStorageInput.value
+        sessionNum = parseInt(sessionStorageInput.value)
+        sessionNum--
+        sessionStorage.num = sessionNum
+        sessionStorageInput.value = sessionNum
+      }
+
+      incrementButton.onclick = function() {
+        // Do 4 things
+
+        // 1 - Get the value in the input and parse it to an int
+        // 2 - Increment the number
+        // 3 - Save in local/session storage
+        // 4 - Update input
+
+        let localNum = localStorageInput.value
+        localNum = parseInt(localStorageInput.value)
+        localNum++
+        localStorage.num = localNum
+        localStorageInput.value = localNum
+
+        let sessionNum = sessionStorageInput.value
+        sessionNum = parseInt(sessionStorageInput.value)
+        sessionNum++
+        sessionStorage.num = sessionNum
+        sessionStorageInput.value = sessionNum
+      }
+    </script>
+  </body>
+</html>
