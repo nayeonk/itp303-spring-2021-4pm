@@ -15,100 +15,103 @@
 
 	<script>
 
-		// Two ways to create an object in JS
+		// 1. Literal Syntax
 
-		// 1. Literal syntax
-		// In JS, you do NOT have to create a class before creating an object. You can create objects right away
+		// In JS, you do NOT have to create a class
+		// before creating an object.
+		// You can create objects right away.
 		let person = {
 			name: "Tommy Trojan",
 			age: 21,
-			hobbies: ["taking photos", "posing", "guarding USC"],
+			hobbies: [
+				"Taking photos",
+				"Posing",
+				"Guarding USC"
+			],
 			phone: {
 				cell: "123-123-1234",
 				work: "555-555-5555"
 			},
-			greet: function() {
-				console.log("hi!" + this.name);
+			greet: function(yourName) {
+				console.log("Hi " + yourName + "! " + this.name)
 			}
-		};
-		console.log(person);
-		console.log(person.name);
-		console.log(person.age);
-		console.log(person.hobbies[0]);
-		console.log(person.phone.cell);
-		person.greet();
-
-		let person2 = {
-			name: "Traveler",
-			age: 25
 		}
 
+		// console.log(person.name)
+		// console.log(person.hobbies)
+		// console.log(person.hobbies[0])
+		// console.log(person.phone)
+		// console.log(person.phone.cell)
+		// person.greet("Nayeon")
+
+		// person.name = "Mark Redekopp"
+
+		// console.log(person)
 
 		// 2. Constructor Function syntax
-		// This reminds you of other OOP languages that declare a class first and then you create objects out of them
 		function Person(fullName, age) {
-			this.name = fullName;
-			this.age = age;
-			this.school = "usc";
-			this.greet = function() {
-				console.log("hi");
-			}
+			this.name = fullName
+			this.age = age
+			this.location = location
+
 			this.getName = function() {
 				console.log(this.name)
-				return this.name;
-			}
-			this.setName = function(name) {
-				this.name = name;
+				return this.name
 			}
 		}
 
 		let joe = new Person("Joe Smith", 22);
-		let jimmy = new Person("Jimmy Kimmel", 35);
+		let jim = new Person("Jimmy Kimmel", 35)
+		let kim = new Person("Kimmy Jimmel", 35, "San Francisco")
 
-		console.log(joe);
-		console.log(joe.age);
-		console.log(joe.school);
+		// console.log(joe.name)
+		// jim.getName()
 
-		console.log(jimmy.name);
+		// 3. New Class method
+		class NewPerson {
+			constructor(name, age) {
+				this.name = name
+				this.age = age
+			}
 
-		// Can set/change any object's properties
-		jimmy.name = "James";
-
-		// When working with a lot of objects, we can store them in an array
-
-		let peopleList = [];
-		peopleList.push(joe, jimmy, person, person2);
-
-		console.log(peopleList);
-
-
-		// Now that I have an array of all these people, I can use it to display all of them on the browser
-
-		let people = document.querySelector("#people");
-
-		for( let i = 0; i < peopleList.length; i++) {
-			let pElement = document.createElement("p");
-			pElement.innerHTML = peopleList[i].name + " - " + peopleList[i].age;
-			people.appendChild(pElement);
+			greet() {
+				// console.log("Hi, my name is " + this.name)
+				console.log(`Hi, my name is ${this.name}`)
+			}
 		}
+
+		// let bim = new NewPerson("Bimmy Mimmel", 90)
+		// bim.greet()
+
+		let peopleList = []
+		peopleList.push(joe, jim, kim)
+
+		for(let i = 0; i < peopleList.length; i++) {
+			let pElement = document.createElement("p")
+			pElement.innerHTML = peopleList[i].name + " - " + peopleList[i].age
+
+			// pElement.innerHTML = `${peopleList[i].name} - ${peopleList[i].age}`
+
+			document.querySelector("#people").appendChild(pElement)
+		}
+
+		// console.log(peopleList)
+
+		// 4 - New Loops (for... in, for.. of)
+		
+		// For each loop in JS
+		for(let person of peopleList) {
+			console.log(person)
+		}
+
+		// For... in loop will loop through the properties (keys)
+		for(let property in person) {
+			console.log(property)
+			// console.log(person[property])
+		}
+
+
 
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
