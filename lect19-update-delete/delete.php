@@ -1,16 +1,44 @@
 <?php
+
+require "config/config.php";
 $isDeleted = false;
 
+// Make sure this file gets a track id. Otherwise, file doesn't know which track to delete
 if ( !isset($_GET['track_id']) || empty($_GET['track_id']) 
 		|| !isset($_GET['track_name']) || empty($_GET['track_name']) ) {
 	$error = "Invalid track.";
 }
 else {
-	// $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	// if ( $mysqli->connect_errno ) {
-	// 	echo $mysqli->connect_error;
-	// 	exit();
-	// }
+	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	if ( $mysqli->connect_errno ) {
+		echo $mysqli->connect_error;
+		exit();
+	}
+
+	// Generate the SQL statement
+	$sql = "DELETE FROM tracks
+		WHERE track_id = " . $_GET["track_id"] . ";";
+	echo "<hr>" . $sql . "<hr>";
+
+
+	// OR prepared statement way
+	$statement = $mysqli->prepare("DELETE FROM tracks WHERE track_id = ?");
+	$statement->bind_param("i", $_GET["track_id"]);
+
+	$executed = $statement->execute();
+	if(!$executed) {
+		echo $mysqli->error;
+		exit();
+	}
+
+	// Check that only one row was affected
+	if($statement->affected_rows == 1) {
+		$isDeleted = true;
+	}
+
+	$statement->close();
+
+	$mysqli->close();
 }
 
 ?>
@@ -46,7 +74,7 @@ else {
 				<?php endif; ?>
 
 				<?php if ( $isDeleted ) :?>
-					<div class="text-success"><span class="font-italic">Track Name</span> was successfully deleted.</div>
+					<div class="text-success"><span class="font-italic"><?php echo $_GET["track_name"]; ?></span> was successfully deleted.</div>
 				<?php endif; ?>
 
 			</div> <!-- .col -->

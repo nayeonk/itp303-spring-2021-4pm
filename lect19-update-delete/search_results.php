@@ -99,7 +99,8 @@ $mysqli->close();
 <?php while ( $row = $results->fetch_assoc() ) : ?>
 	<tr>
 		<td>
-			<a href="delete.php" class="btn btn-outline-danger delete-btn">
+			<!-- confirm() returns TRUE if user clicks on "Ok". returns FALSE if user clicks on "Cancel" -->
+			<a onclick="return confirm('Are you sure you want to delete this song?');" href="delete.php?track_id=<?php echo $row['track_id']; ?>&track_name=<?php echo $row['track']?>" class="btn btn-outline-danger delete-btn">
 				Delete
 			</a>
 		</td>
