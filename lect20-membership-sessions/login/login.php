@@ -1,7 +1,13 @@
 <?php
+//session_start(); //allows us to access session variables on this page
+
 require '../config/config.php';
 
+// If user is NOT logged in, do the usual things like checking for user input etc etc
+if( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) {	
+	// Will go into this if statement ONLY if username and password inputs were submitted via the POST method (aka a user clicked on the login button to submit the loign form.)
 	if ( isset($_POST['username']) && isset($_POST['password']) ) {
+
 		if ( empty($_POST['username']) || empty($_POST['password']) ) {
 
 			$error = "Please enter username and password.";
@@ -9,6 +15,7 @@ require '../config/config.php';
 		}
 		else {
 
+			// Check if user input matches a username/password combo in the database
 			$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 			if($mysqli->connect_errno) {
@@ -16,7 +23,8 @@ require '../config/config.php';
 				exit();
 			}
 
-			$passwordInput = "";
+			// hash the user's input for password (and compare this with the hashed password stored in the database)
+			$passwordInput = hash("sha256", $_POST['password']);
 
 			$sql = "SELECT * FROM users
 						WHERE username = '" . $_POST['username'] . "' AND password = '" . $passwordInput . "';";
@@ -30,15 +38,27 @@ require '../config/config.php';
 				exit();
 			}
 
+			// If there is a match, we will get a result back. num_rows returns the number of results from the above sql query
 			if($results->num_rows > 0) {
-				
-			
+				//login is succesful!
+				// store this user's username in a session
+				$_SESSION["username"] = $_POST["username"];
+				$_SESSION["logged_in"] = true;
+
+				// Redirect user to the home page using relative path
+				header("Location: ../song-db/index.php");
+
 			}
 			else {
 				$error = "Invalid username or password.";
 			}
 		} 
 	}
+}
+else {
+	// user is logged in, kick them out of this page. Redirect user to home page
+	header("Location: ../song-db/index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +77,7 @@ require '../config/config.php';
 	</div> <!-- .container -->
 
 	<div class="container">
-
+		<!-- Submit login form to itself -->
 		<form action="login.php" method="POST">
 
 			<div class="row mb-3">

@@ -1,3 +1,7 @@
+<?php
+	session_start(); //start the session for this apge
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

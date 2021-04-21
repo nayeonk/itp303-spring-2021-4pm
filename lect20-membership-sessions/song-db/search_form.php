@@ -1,4 +1,7 @@
 <?php
+
+//session_start(); // need this to allow this page to use sessions
+
 require '../config/config.php';
 
 // DB Connection
