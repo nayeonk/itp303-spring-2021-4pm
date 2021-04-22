@@ -63,25 +63,28 @@
 		};
 
 		// Make a GET request to our backend.php file via AJAX
-		ajaxGet("backend.php", function(results) {
-			// Got some kind of result back from backend.php
-			console.log(results);
+		// ajaxGet("backend.php?searchTerm=love&year=2019", function(results) {
+		// 	// Got some kind of result back from backend.php
+		// 	console.log(results);
 
-			// results is a JSON formatted string. Need to convert this string into JavaScript objects
-			let parsedResults = JSON.parse(results);
+		// 	// results is a JSON formatted string. Need to convert this string into JavaScript objects
+		// 	let parsedResults = JSON.parse(results);
 
-			console.log(parsedResults);
+		// 	console.log(parsedResults);
 
-			// We can now use dot notation to grab any value we want
-			console.log(parsedResults.age);
+		// 	// We can now use dot notation to grab any value we want
+		// 	console.log(parsedResults.age);
 
-			// We can even display this information on the browser
-			document.querySelector("#test-output").innerHTML = parsedResults.first_name;
-		});
+		// 	// We can even display this information on the browser
+		// 	document.querySelector("#test-output").innerHTML = parsedResults.first_name;
+		// });
 
-		function ajaxPost(endpointUrl, returnFunction){
+		// post requests need a little more info than a get request
+		function ajaxPost(endpointUrl, postData, returnFunction){
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', endpointUrl, true);
+			xhr.open('POST', endpointUrl, true);
+			// POST requests need extra header information
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 			xhr.onreadystatechange = function(){
 				if (xhr.readyState == XMLHttpRequest.DONE) {
 					if (xhr.status == 200) {
@@ -94,6 +97,67 @@
 			}
 			xhr.send(postdata);
 		};
+
+		// to actually call the POST function
+		// ajaxPost("backend.php", "searchTerm=love&year=2021", function() {
+		// 	// this function runs when we get some response back from backend.php
+		// });
+
+
+// ---- Search form is submitted
+document.querySelector("form").onsubmit = function(event) {
+	event.preventDefault();
+
+	// Grab the user's input
+	let searchInput = document.querySelector("#search-term-id").value;
+
+	// Make a get request via ajax to our backend.php. Send it the user's input
+	ajaxGet("backend.php?term=" + searchInput, function(results){
+		// This code will run when we get a response back from backend.php
+
+		console.log(results);
+
+		// Convert json string into js objects
+		let jsResults = JSON.parse(results);
+
+		console.log(jsResults);
+
+		let resultList = document.querySelector("#search-results");
+
+		// Clear all previous elements upon every search
+		while(resultList.hasChildNodes()) {
+			resultList.removeChild(resultList.lastChild);
+		}
+
+		// Run through all the results and dynamically create an <li> tag for each song result. Append the <li> to the existing <ol>
+		for(let i = 0; i < jsResults.length; i++) {
+			let li = document.createElement("li");
+			li.innerHTML = jsResults[i].name;
+			resultList.appendChild(li);
+		}
+	});
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 	</script>
 
