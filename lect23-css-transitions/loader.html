@@ -1,0 +1,70 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Loader</title>
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+	<style>
+		#container {
+			text-align: center;
+			font-family: 'Bree Serif';
+		}
+		/* ---- Loader ---- */
+		.loader {
+			margin-bottom: 50px;
+		}
+		.loader span {
+			background: #3e3e3e;
+  			box-shadow: 1px 2px 3px #999;
+  			height: 14px;
+  			width: 14px;  
+  			display: inline-block;
+  			border-radius: 14px;
+
+  			animation: wave 2s infinite;
+		}
+		.loader span:nth-child(1) {
+			animation-delay: 0s;
+		}
+		.loader span:nth-child(2) {
+			animation-delay: 0.1s;
+		}
+		.loader span:nth-child(3) {
+			animation-delay: 0.2s;
+		}
+		@keyframes wave {
+			0% {
+				transform: translate(0,0);
+				background: #3e3e3e;
+			}
+			10% {
+				transform: translate(0,-20px);
+				background: #72F8AB;
+			}
+			40% {
+				transform: translate(0,0px);
+			}
+			100% {
+				transform: translate(0,0px);
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+
+		<button id="btn">Click Me</button>
+		
+		<div>
+			<h2>Loader</h2>
+
+			<div class="loader">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS3 Animations</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: #FFE347;
+			font-size: 14px;
+
+			/* Transition properties to make the transition from background yellow to red smoother */
+			/*transition-property: background-color;
+			transition-duration: 0.3s;
+			transition-delay: 2s;
+			transition-timing-function: ease;*/
+
+			/* Shorthand way to write transition properties */
+			/*transition: background-color 0.3s 0s ease;*/
+
+			/* Multiple CSS properties can transtition */
+			/*transition: background-color 0.3s 0s ease, width 1s 0s ease, font-size 0.5s 0s ease;*/
+
+			/* If all the transition properties have the same duration, delay, timing function, can use 'all' for transition-property */
+			transition: all 1s 0s ease;
+		}
+		.box:hover {
+			background-color: #990000;
+			width: 500px;
+			font-size: 40px;
+		}
+		.box2 {
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+
+			/* Using the transform property, rotate this box */
+			transform: rotate(30deg);
+		}
+		.box3 {
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+
+			transform: scale(0.5);
+		}
+		.box4 {
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+
+			transform: skew(10deg, -20deg);
+		}
+		.box5 {
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+
+			transform: translate(100px, -100px, );
+		}
+		.clear {
+			clear: both;
+		}
+		.box6-inner {
+			width: 200px;
+			height: 200px;
+			margin-top: 60px;
+			background-color: #7D7ABC;
+
+			/* Set default transform values */
+			transform: scale(1) translate(0px, 0px) rotate(0deg);
+			transition: transform 0.5s 0s ease;
+		}
+		.box6:hover .box6-inner {
+			transform: scale(2) translate(200px, 0px) rotate(360deg);
+		}
+
+
+		/* ---- Pikachu hover effect ---- */
+		.img-container {
+			width: 500px;
+			margin-top: 20px;
+			position: relative;
+		}
+		.img-container img {
+			width: 100%;
+			display: block;
+		}
+		.img-container .overlay {
+			background-color: rgba(0, 0, 0, 0.6);
+			color: #FFF;
+			text-align: center;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+
+			/* By default, hide the overlay. Use opacity to hide/show things when using transitions. Overlay is a parent of pikachu text and read more button, so this will hide the text and read more button as well */
+			opacity: 0;
+			transition: opacity 1s 0s ease;
+		}
+		.img-container:hover .overlay {
+			opacity: 1;
+		}
+		.img-container p {
+			position: absolute;
+			top: 100px;
+			text-align: center;
+			width: 100%;
+			font-size: 40px;
+
+			/* By default, the pikachu text is large (it shrinks to its normal size when user hovers over pikachu image) */
+			transform: scale(2);
+			transition: transform 1s 0s ease;
+		}
+		.img-container:hover p {
+			transform: scale(1);
+		}
+
+		.img-container a {
+			text-decoration: none;
+			display: block;
+			background-color: #900;
+			color: #FFF;
+			width: 120px;
+			line-height: 40px;
+			text-align: center;
+			position: absolute;
+			bottom: 80px;
+			left: 0px;
+			right: 0px;
+			margin-left: auto;
+			margin-right: auto;
+
+			/* By default, hide the red button (although it is already hidden because its parent, overlay, is hidden.*/
+			opacity: 0;
+			transition: opacity 1s 1s ease; 
+		}
+		.img-container:hover a {
+			opacity: 1;
+		}
+		#button {
+			margin-top: 50px;
+		}
+		.box7 {
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			margin-top: 20px;
+			margin-right: 20px;
+			margin-bottom: 400px;
+
+		}
+		.animate {
+			/* Animation properties */
+			animation-name: move;
+			animation-duration: 3s;
+			animation-delay: 0s;
+			animation-fill-mode: forwards;
+			animation-iteration-count: infinite;
+		}
+		@keyframes move {
+			0%{
+				transform: translate(0px, 0px);
+			}
+			20% {
+				transform: translate(100px, 0px);
+				width: 100px;
+			}
+			50%{
+				transform: translate(100px, 400px);
+				width: 500px;
+			}
+			100%{
+				transform: translate(100px, -100px);
+				width: 200px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="outercontainer">
+
+		<div class="box">
+			Hello, I'm a box.
+		</div>
+
+		<div class="box2">
+			Hello, I'm a rotating box.
+		</div>
+
+		<div class="box3">
+			Hello, I'm a scaled box
+		</div>
+
+		<div class="box4">
+			Hello, I'm a skewed box
+		</div>
+
+		<div class="box5">
+			Hello, I'm a box that translates.
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="box6">
+			<div class="box6-inner">
+				Hello, I'm another box.
+			</div>
+		</div>
+
+		<div class="img-container">
+			<img src="https://media.altpress.com/uploads/2018/07/pikachu_pokemongo_header2016-1-696x449.png" alt="Pikachu"/>
+			<div class="overlay">
+				<p>Pikachu</p>
+				<a href="#">Read More</a>
+			</div>
+		</div>
+
+		<button id="button">Trigger animation</button>
+
+		<div class="box7">
+			Box 7
+		</div>
+	</div>
+	
+	<script>
+		// Use JS to trigger the animation on .box7
+		// when button is clicked, trigger animation on .box7
+		document.querySelector("#button").onclick = function() {
+			document.querySelector(".box7").classList.add("animate");
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
