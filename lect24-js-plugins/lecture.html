@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Plugins</title>
+	<!-- Import lightbox plugin's CSS file -->
+	<link href="lightbox2-2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+	<style>
+		.clearfloat {
+			clear: both;
+		}
+		body {
+			margin: 0px;
+		}
+		#navbar {
+			background-color: #900;
+		}
+		#navbar ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#navbar a {
+			display: block;
+			float: left;
+			width: 25%;
+			line-height: 50px;
+			background-color: #900;
+			color: #FFF;
+			text-decoration: none;
+			text-align: center;
+		}
+		#navbar a:hover {
+			background-color: #FC0;
+		}
+		.container{
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#thumbnails {
+			text-align: center;
+		}
+		#thumbnails img{
+			height:80px;
+			margin:	5px;
+		}
+		#thumbnails > * {
+			display: inline-block;
+		}
+		#parallax-container {
+			border: 1px solid #CCC;
+			height: 250px;
+
+			overflow: hidden;
+		}
+		#parallax-container img {
+			width: 100%;
+		}
+		.box {
+			width: 150px;
+			height: 150px;
+			background-color: skyblue;
+			margin: 10px;
+			float: left;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="navbar">
+		<ul>
+			<li><a href="lecture.html#lightbox-section">Lightbox</a></li>
+			<li><a href="lecture.html#parallax-section">Parallax</a></li>
+			<li><a href="lecture.html#section-3">Section 3</a></li>
+			<li><a href="lecture.html#section-4">Section 4</a></li>
+			<div class="clearfloat"></div>
+		</ul>
+	</div> <!-- #navbar -->
+	
+	<div class="container">
+		<h1>JavaScript Plugins</h1>
+		<h2 id="lightbox-section">Lightbox Example</h2>
+
+		<div id="thumbnails">
+			<a href="img/blink.gif" data-lightbox="kanye" data-title="Blinking Kanye">
+				<img src="img/blink.gif" alt="Blinking">
+			</a>
+			<a href="img/disagree.gif" data-lightbox="kanye" data-title="Disagreeing Kanye">
+				<img src="img/disagree.gif" alt="Disagreeing">
+			</a>
+			<a href="img/fight.jpg" data-lightbox="kanye">
+				<img src="img/fight.jpg" alt="Fighting">
+			</a>
+			<a href="img/sleepy.jpg" data-lightbox="kanye">
+				<img src="img/sleepy.jpg" alt="Sleepy">
+			</a>
+			<a href="img/unhappy.jpg" data-lightbox="kanye">
+				<img src="img/unhappy.jpg" alt="Unhappy">
+			</a>
+		</div> <!-- #thumbnails -->
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet tellus ut sapien aliquam vestibulum. Ut euismod nunc vehicula nunc venenatis feugiat. Maecenas quis tortor suscipit, rutrum risus eu, placerat libero. Donec viverra in lacus sed ullamcorper. Quisque euismod purus in dui convallis, quis ullamcorper mauris eleifend. Nullam ut tempus magna, at pharetra velit. Praesent tincidunt ipsum ante. Integer blandit posuere mi eget pulvinar. Sed eget lectus ipsum. Fusce commodo eros non sagittis commodo. Fusce ut sapien rutrum, egestas magna vel, laoreet libero.
+		</p>
+
+		<p>
+			Integer ullamcorper quam ac eros hendrerit, ac ultrices ligula sagittis. Sed ac aliquam lacus, vitae mollis risus. Morbi egestas tellus et arcu lacinia vulputate. Fusce rhoncus augue velit, nec ornare risus aliquam at. Proin at leo quam. Aenean ultricies suscipit est ut euismod. Mauris nec velit non arcu faucibus rutrum at quis eros. Ut sed feugiat purus. Duis facilisis leo eget vestibulum tincidunt. Integer porta ante non est gravida, id auctor metus suscipit. Fusce eleifend mauris ex, ac condimentum velit sollicitudin eu. Aenean et dolor ac quam posuere iaculis. Nulla laoreet id sapien a convallis. Donec ac gravida nisi. Phasellus mollis, est semper molestie efficitur, quam lectus faucibus odio, in cursus libero mauris in augue.
+		</p>
+
+		<p>
+			Quisque non posuere nunc. Aenean viverra, neque sit amet interdum pellentesque, libero lectus tempor diam, nec congue arcu ligula sed lorem. Sed efficitur elit eget nunc feugiat consequat. Morbi tincidunt mauris eget rhoncus bibendum. Sed ultrices pharetra est vitae ultricies. Curabitur ultricies eros non maximus fringilla. Phasellus id justo ut quam efficitur lobortis. In euismod turpis eu ex ullamcorper consequat.
+		</p>
+
+		<h2 id="parallax-section">Parallax Example</h2>
+
+	</div> <!-- .container -->
+
+	<div id="parallax-container">
+		<img src="img/usc.jpg" alt="USC" class="rellax" data-rellax-speed="5">
+	</div> <!-- #parallax-container -->
+
+	<div class="container">
+		<p>
+			Quisque non posuere nunc. Aenean viverra, neque sit amet interdum pellentesque, libero lectus tempor diam, nec congue arcu ligula sed lorem. Sed efficitur elit eget nunc feugiat consequat. Morbi tincidunt mauris eget rhoncus bibendum. Sed ultrices pharetra est vitae ultricies. Curabitur ultricies eros non maximus fringilla. Phasellus id justo ut quam efficitur lobortis. In euismod turpis eu ex ullamcorper consequat.
+		</p>
+
+		<p>
+			Maecenas quis quam nisl. Pellentesque aliquam arcu quam, eget gravida felis rutrum et. Maecenas pharetra libero ex, sit amet fermentum tellus rutrum in. Mauris tincidunt quam in ligula bibendum, ut efficitur nibh egestas. Suspendisse nisl lacus, euismod nec nisi non, tincidunt vehicula augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus elementum, quam id sollicitudin dignissim, nulla sapien pellentesque tellus, et fermentum risus ex vel ex. Proin nisl metus, mattis id nibh sed, egestas auctor tortor. Praesent efficitur risus orci, nec mattis nulla vehicula vitae. Maecenas tempus pretium elementum. Phasellus mattis enim rhoncus turpis sodales aliquet. Aliquam interdum turpis a leo consequat ornare. Sed ante dui, feugiat tincidunt mauris in, tempor euismod erat. Pellentesque porta orci at vulputate vulputate. Suspendisse potenti. Phasellus sed egestas nibh.
+		</p>
+
+		<h2 id="section-3">Section 3</h2>
+
+		<div class="box draggable">
+			Drag me!
+		</div>
+
+		<div class="box draggable">
+			Drag me!
+		</div>
+
+		<p>
+			Sit amet est sit amet iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc quam est, imperdiet ac ex ut, dapibus rhoncus risus. Sed rhoncus elit vel dolor sodales maximus. Mauris ut aliquet diam. Nulla tristique ante et orci eleifend, ut viverra orci gravida. Phasellus sollicitudin iaculis nulla in mollis. Etiam ac massa scelerisque ligula egestas elementum condimentum a nibh. Proin et tortor at magna suscipit egestas. Nulla sollicitudin commodo tempor. Donec porta odio est, at luctus tellus rhoncus in. Duis at sapien quis sem vehicula aliquam ac at diam. Etiam vitae leo eu leo luctus iaculis. Nulla in nulla nulla. Nam ornare risus vitae ex suscipit, eu luctus tortor interdum. Sed sed mi imperdiet, dignissim justo vehicula, aliquam metus.
+		</p>
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet tellus ut sapien aliquam vestibulum. Ut euismod nunc vehicula nunc venenatis feugiat. Maecenas quis tortor suscipit, rutrum risus eu, placerat libero. Donec viverra in lacus sed ullamcorper. Quisque euismod purus in dui convallis, quis ullamcorper mauris eleifend. Nullam ut tempus magna, at pharetra velit. Praesent tincidunt ipsum ante. Integer blandit posuere mi eget pulvinar. Sed eget lectus ipsum. Fusce commodo eros non sagittis commodo. Fusce ut sapien rutrum, egestas magna vel, laoreet libero.
+		</p>
+
+		<p>
+			Integer ullamcorper quam ac eros hendrerit, ac ultrices ligula sagittis. Sed ac aliquam lacus, vitae mollis risus. Morbi egestas tellus et arcu lacinia vulputate. Fusce rhoncus augue velit, nec ornare risus aliquam at. Proin at leo quam. Aenean ultricies suscipit est ut euismod. Mauris nec velit non arcu faucibus rutrum at quis eros. Ut sed feugiat purus. Duis facilisis leo eget vestibulum tincidunt. Integer porta ante non est gravida, id auctor metus suscipit. Fusce eleifend mauris ex, ac condimentum velit sollicitudin eu. Aenean et dolor ac quam posuere iaculis. Nulla laoreet id sapien a convallis. Donec ac gravida nisi. Phasellus mollis, est semper molestie efficitur, quam lectus faucibus odio, in cursus libero mauris in augue.
+		</p>
+
+		<p>
+			Aenean ultricies et sem in accumsan. Donec vitae dui mi. Etiam quis mi eu massa hendrerit elementum. Quisque tincidunt condimentum euismod. Maecenas sodales lacus mauris, sed tempor orci lacinia eu. In tempor sit amet ipsum quis elementum. Donec luctus est in sapien tempor, vitae egestas orci faucibus. Nullam a faucibus neque. Nullam nisi risus, pharetra mattis dictum commodo, ultricies in lacus. In condimentum dignissim lacus, non laoreet quam convallis sodales. Nam malesuada, nibh eget placerat volutpat, dolor risus rhoncus lorem, nec convallis libero arcu et ligula. Morbi gravida, nisl vel ultrices ultrices, leo est vehicula augue, eu laoreet ligula est at urna. In fermentum aliquam neque sed sodales. Morbi quis libero a turpis pharetra venenatis vel in leo. Curabitur nec rutrum risus. Maecenas et auctor nulla, ac scelerisque elit.
+		</p>
+
+		<h2 id="section-4">Section 4</h2>
+
+		<p>
+			Aliquam elementum bibendum dolor, vulputate sagittis tortor tincidunt at. Fusce maximus ipsum sit amet mauris porta, ut tempus erat sollicitudin. Etiam sed mi interdum ipsum dapibus egestas. Phasellus consectetur commodo diam, eget dapibus diam congue vitae. Maecenas vitae nibh ultrices, tempus felis et, varius urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ac nulla est. Quisque sit amet felis ut libero sodales sodales eget in lacus.
+		</p>
+
+		<p>
+			Nullam at rhoncus dolor. Nam nisi sapien, auctor vel luctus in, dictum id tortor. Vivamus elit purus, porttitor sit amet egestas eu, tempus ac turpis. Etiam ut odio varius tellus fringilla cursus id sit amet risus. Cras semper ultricies mi a sagittis. Nulla facilisi. Nunc et urna est. Donec rutrum euismod venenatis. Duis eget dignissim eros, ac blandit risus. Vestibulum efficitur nec metus condimentum porttitor. In hac habitasse platea dictumst. In vehicula turpis at feugiat gravida.
+		</p>
+
+		<p>
+			Phasellus cursus nulla sodales, auctor ex nec, bibendum ipsum. Cras elementum, augue faucibus interdum finibus, diam mi blandit orci, non fringilla libero diam sit amet leo. Curabitur quis justo sit amet lectus pellentesque pulvinar fermentum a erat. Suspendisse risus mauris, consequat quis dolor non, faucibus malesuada felis. Integer feugiat euismod justo. Aenean elementum lectus ac eros imperdiet, tincidunt commodo leo malesuada. Vestibulum eleifend mi et euismod dapibus. Maecenas efficitur auctor ligula.
+		</p>
+
+		<p>
+			Nullam accumsan arcu nec odio pellentesque, blandit scelerisque massa congue. Etiam vestibulum pulvinar magna quis egestas. Donec sodales dapibus sapien, et tempus mi dictum quis. Sed eu urna molestie, blandit tellus interdum, faucibus metus. Quisque facilisis convallis nisi, in imperdiet nisl semper et. Phasellus sit amet lorem arcu. Aliquam et elit elit. Nullam enim lorem, maximus quis sapien facilisis, feugiat vestibulum elit. Fusce et pulvinar nulla. Nunc leo sem, cursus a malesuada a, auctor at est. Fusce iaculis, nisl a eleifend hendrerit, dui enim gravida turpis, vitae placerat ipsum libero ac sapien. Donec tincidunt lacus vestibulum augue bibendum, facilisis facilisis elit varius. Etiam ac mollis felis. Praesent sed lacus luctus, porta ligula quis, mattis quam. Donec sagittis ex eget eleifend cursus.
+		</p>
+	</div> <!-- #container -->
+
+	<!-- Import rellax js plugin -->
+	<script src="rellax-master/rellax.min.js"></script>
+
+	<!-- Import jQuery (required by lightbox plugin) -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<!-- Import lightbox plugin js file -->
+	<script src="lightbox2-2.11.3/dist/js/lightbox.min.js"></script>
+
+	<!-- Import draggabilly plugin file -->
+	<script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
+
+	<!-- Initialize rellax js plugin -->
+	<script>
+		var rellax = new Rellax('.rellax');
+
+		// Lightbox plugin options
+		lightbox.option({
+      		'fadeDuration': 2000,
+      		'positionFromTop': 200,
+      		'disableScrolling': true
+    	})
+
+		// Initalize the draggabilly plugin
+    	var $draggable = $('.draggable').draggabilly({
+		  // options...
+		})
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
